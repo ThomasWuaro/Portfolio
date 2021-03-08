@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Skill{% endblock %}
+
+{% block body %}
+    <h1>Create new Skill</h1>
+
+    {{ include('skill/_form.html.twig') }}
+
+    <a href="{{ path('skill_index') }}">back to list</a>
+{% endblock %}
+
+{% block javascripts %}
+  {{parent()}}
+  <script src="/js/datepicker.js"></script>
+{% endblock %}

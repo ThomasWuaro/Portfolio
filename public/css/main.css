@@ -1,0 +1,27 @@
+nav{
+	margin-bottom: 20px;
+}
+
+.logo{
+	max-width: 200px;
+}
+
+.logo-small{
+	max-width: 80px;
+}
+
+.carousel{
+	min-height:300px !important;
+}
+
+#home, #skills, #formation, #projects{
+	min-height: 100vh !important;
+}
+
+.hello{
+	width: 40%;
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+}

@@ -3,10 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="/lib/materialize/css/materialize.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% include 'navbar.html.twig' %}
+
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+
+        {% include 'footer.html.twig' %}
+        {% block javascripts %}
+        <script src="/lib/jquery.min.js"></script>
+        <script src="/lib/materialize/js/materialize.min.js"></script>{% endblock %}
     </body>
 </html>

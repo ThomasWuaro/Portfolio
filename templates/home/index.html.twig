@@ -1,0 +1,166 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+  {% block stylesheets %}
+    {{parent()}}
+    <link rel="stylesheet" href="/css/carousel.css">
+  {% endblock %}
+
+  {% block body %}
+
+    <div id="home">
+      <div class="hello card blue-grey darken-1">
+        <div class="card-content white-text scrollspy">
+          <span class="card-title">Hello World !</span>
+          <p>Hoarau Thomas - <b>Développeur web full stack</b></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="skills" class="col s12">
+        <h2>Compétences</h2>
+
+        <div class="holderCircle">
+
+          <div class="dotCircle">
+            {% for skill in skills %}
+          <span class="itemDot {{'itemDot' ~ skill.id}}" data-tab="{{skill.id}}">
+              <img src="{{ vich_uploader_asset(skill, 'imageFile') }}" class="logo-small">
+              <span class="forActive"></span>
+          </span>
+        {% endfor %}
+
+            {# <span class="itemDot active itemDot1" data-tab="1">
+              <i class="fa fa-life-ring"></i>
+              <span class="forActive"></span>
+            </span>
+            <span class="itemDot itemDot2" data-tab="2">
+              <i class="fa fa-bomb"></i>
+              <span class="forActive"></span>
+            </span>
+            <span class="itemDot itemDot3" data-tab="3">
+              <i class="fa fa-heartbeat"></i>
+              <span class="forActive"></span>
+            </span>
+            <span class="itemDot itemDot4" data-tab="4">
+              <i class="fa fa-leaf"></i>
+              <span class="forActive"></span>
+            </span>
+            <span class="itemDot itemDot5" data-tab="5">
+              <i class="fa fa-magic"></i>
+              <span class="forActive"></span>
+            </span>
+            <span class="itemDot itemDot6" data-tab="6">
+              <i class="fa fa-pencil-square-o"></i>
+              <span class="forActive"></span>
+            </span>
+            <span class="itemDot itemDot7" data-tab="7">
+              <i class="fa fa-rss-square"></i>
+              <span class="forActive"></span>
+            </span>
+            <span class="itemDot itemDot8" data-tab="8">
+              <i class="fa fa-ship"></i>
+              <span class="forActive"></span>
+            </span>
+            <span class="itemDot itemDot9" data-tab="9">
+              <i class="fa fa-truck"></i>
+              <span class="forActive"></span>
+            </span>
+            <span class="itemDot itemDot10" data-tab="10">
+              <i class="fa fa-pied-piper"></i>
+              <span class="forActive"></span>
+            </span> #}
+          </div>
+
+          <div class="contentCircle">
+
+            {% for skill in skills %}
+            <div class="CirItem {{'CirItem' ~ skill.id}}">
+              {{skill.name}}
+            </div>
+            {% endfor %}
+
+            {# <div class="CirItem active CirItem1">
+              TEXT SAMPLE FOR ITEM 1
+            </div>
+            <div class="CirItem CirItem2">
+              TEXT SAMPLE FOR ITEM 2
+            </div>
+            <div class="CirItem CirItem3">
+              TEXT SAMPLE FOR ITEM 3
+            </div>
+            <div class="CirItem CirItem4">
+              TEXT SAMPLE FOR ITEM 4
+            </div>
+            <div class="CirItem CirItem5">
+              TEXT SAMPLE FOR ITEM 5
+            </div>
+            <div class="CirItem CirItem6">
+              TEXT SAMPLE FOR ITEM 6
+            </div>
+            <div class="CirItem CirItem7">
+              TEXT SAMPLE FOR ITEM 7
+            </div>
+            <div class="CirItem CirItem8">
+              TEXT SAMPLE FOR ITEM 8
+            </div>
+            <div class="CirItem CirItem9">
+              TEXT SAMPLE FOR ITEM 9
+            </div>
+            <div class="CirItem CirItem10">
+              TEXT SAMPLE FOR ITEM 10
+            </div> #}
+          </div>
+
+        </div>
+
+          {# <div class="carousel carousel-slider center">
+            {% for skill in skills %}
+              <div class="carousel-item blue-grey darken-1 white-text" href="{{skill.id}}">
+                <h2>{{skill.name}}</h2>
+                <img src="{{ vich_uploader_asset(skill, 'imageFile') }}" class="logo-small">
+                <p class="white-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            {% endfor %}
+          </div>  #}
+
+          {# <div class="carousel">
+            {% for skill in skills %}
+              <a class="carousel-item" href="{{skill.id}}"><img src="{{ vich_uploader_asset(skill, 'imageFile') }}" class="logo-small"></a>
+            {% endfor %}
+          </div> #}
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="formation" class="col s12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text section scrollspy">
+              <span class="card-title">Formation</span>
+              <p>Content</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="projects" class="col s12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text section scrollspy">
+              <span class="card-title">Projects</span>
+              <p>Content</p>
+            </div>
+          </div>
+        </div>
+      </div>   
+
+    {% endblock %}
+
+    {% block javascripts %}
+      {{parent()}}
+      <script src="js/scrollspy.js"></script>
+      <script src="js/carousel.js"></script>
+    {% endblock %}

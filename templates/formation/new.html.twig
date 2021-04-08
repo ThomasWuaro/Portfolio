@@ -1,11 +1,17 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}New Formation{% endblock %}
 
-{% block body %}
-    <h1>Create new Formation</h1>
+	{% block body %}
+		<h1>Créer une nouvelle formation</h1>
+		<blockquote>Entrez les informations demandées pour créer une nouvelle formation.</blockquote>
 
-    {{ include('formation/_form.html.twig') }}
+		{{ include('formation/_form.html.twig') }}
 
-    <a href="{{ path('formation_index') }}">back to list</a>
-{% endblock %}
+		<div class="right-align"><a href="{{ path('formation_index') }}" class="btn"><i class="material-icons back">arrow_back</i>Retour</a></div>
+	{% endblock %}
+
+	{% block javascripts %}
+		{{parent()}}
+		<script src="/js/datepicker.js"></script>
+	{% endblock %}

@@ -1,32 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}Skill index{% endblock %}
 
 {% block body %}
-        <h1>Skill index</h1>
-
+        <h1><i class="large material-icons relative-icon">star</i>Compétences</h1>
+        <blockquote>Interface de gestion des compétences.</blockquote>
         <table>
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Level</th>
+                    <th>Nom</th>
                     <th>Image</th>
-                    <th>UpdatedAt</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
             {% for skill in skills %}
                 <tr>
-                    <td>{{ skill.id }}</td>
                     <td>{{ skill.name }}</td>
-                    <td>{{ skill.level }}</td>
                     <td><img src="{{ vich_uploader_asset(skill, 'imageFile') }}" class="logo-small"></td>
-                    <td>{{ skill.updatedAt ? skill.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>
-                        <a href="{{ path('skill_show', {'id': skill.id}) }}">show</a>
-                        <a href="{{ path('skill_edit', {'id': skill.id}) }}">edit</a>
+                    <td class="td-actions">
+                        <a href="{{ path('skill_show', {'id': skill.id}) }}" class="btn">Voir<i class="material-icons">remove_red_eye</i></a>
+                        <a href="{{ path('skill_edit', {'id': skill.id}) }}" class="btn">Modifier<i class="material-icons">edit</i></a>
                     </td>
                 </tr>
             {% else %}
@@ -37,5 +31,6 @@
             </tbody>
         </table>
 
-        <a href="{{ path('skill_new') }}" class="btn">Create new</a>
+        <div class="right-align"><a href="{{ path('skill_new') }}" class="btn">Créer<i class="material-icons">add</i></a></div>
+
 {% endblock %}

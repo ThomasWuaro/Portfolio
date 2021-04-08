@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ExperiencesController extends AbstractController
 {
     /**
-     * @Route("/experiences", name="experiences_index", methods={"GET"})
+     * @Route("/admin/experiences", name="experiences_index", methods={"GET"})
      */
     public function index(ExperiencesRepository $experiencesRepository): Response
     {
@@ -23,7 +23,7 @@ class ExperiencesController extends AbstractController
     }
 
     /**
-     * @Route("/experiences/new", name="experiences_new", methods={"GET","POST"})
+     * @Route("/admin/experiences/new", name="experiences_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -46,7 +46,7 @@ class ExperiencesController extends AbstractController
     }
 
     /**
-     * @Route("/experiences/{id}", name="experiences_show", methods={"GET"})
+     * @Route("/admin/experiences/{id}", name="experiences_show", methods={"GET"})
      */
     public function show(Experiences $experience): Response
     {
@@ -56,7 +56,7 @@ class ExperiencesController extends AbstractController
     }
 
     /**
-     * @Route("/experiences/{id}/edit", name="experiences_edit", methods={"GET","POST"})
+     * @Route("/admin/experiences/{id}/edit", name="experiences_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Experiences $experience): Response
     {
@@ -76,7 +76,7 @@ class ExperiencesController extends AbstractController
     }
 
     /**
-     * @Route("/experiences/{id}", name="experiences_delete", methods={"DELETE"})
+     * @Route("/admin/experiences/{id}", name="experiences_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Experiences $experience): Response
     {

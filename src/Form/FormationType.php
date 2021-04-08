@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class FormationType extends AbstractType
 {
@@ -14,10 +15,12 @@ class FormationType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('company')
             ->add('grade_level')
             ->add('description')
             ->add('startedAt', DateType::class, [
                 'widget' => 'single_text',
+                'format' => 'MM/dd/yyyy',
 
                 // prevents rendering it as type="date", to avoid HTML5 date pickers
                 'html5' => false,
@@ -27,6 +30,7 @@ class FormationType extends AbstractType
             ])
             ->add('endedAt', DateType::class, [
                 'widget' => 'single_text',
+                'format' => 'MM/dd/yyyy',
 
                 // prevents rendering it as type="date", to avoid HTML5 date pickers
                 'html5' => false,
@@ -34,6 +38,7 @@ class FormationType extends AbstractType
                 // adds a class that can be selected in JavaScript
                 'attr' => ['class' => 'datepicker'],
             ])
+            ->add('imageFile', VichImageType::class)
         ;
     }
 

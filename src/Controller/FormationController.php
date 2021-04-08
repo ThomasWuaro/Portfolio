@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FormationController extends AbstractController
 {
     /**
-     * @Route("/formation", name="formation_index", methods={"GET"})
+     * @Route("/admin/formation", name="formation_index", methods={"GET"})
      */
     public function index(FormationRepository $formationRepository): Response
     {
@@ -23,7 +23,7 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @Route("/formation/new", name="formation_new", methods={"GET","POST"})
+     * @Route("/admin/formation/new", name="formation_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -46,7 +46,7 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @Route("/formation/{id}", name="formation_show", methods={"GET"})
+     * @Route("/admin/formation/{id}", name="formation_show", methods={"GET"})
      */
     public function show(Formation $formation): Response
     {
@@ -56,7 +56,7 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @Route("/formation/{id}/edit", name="formation_edit", methods={"GET","POST"})
+     * @Route("/admin/formation/{id}/edit", name="formation_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Formation $formation): Response
     {
@@ -76,7 +76,7 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @Route("/formation/{id}", name="formation_delete", methods={"DELETE"})
+     * @Route("/admin/formation/{id}", name="formation_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Formation $formation): Response
     {

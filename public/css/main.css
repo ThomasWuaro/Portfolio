@@ -1,5 +1,40 @@
-nav{
-	margin-bottom: 20px;
+nav img{
+	margin: 5px 10px;
+	opacity: 80%;
+}
+
+a{
+	color: black;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+h1, h2, h3, h4{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+}
+
+h1 i, h2 i{
+	margin-right: 10px;
+}
+
+.card-title{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400 !important;
+}
+
+p{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+}
+
+.relative-icon {
+	position: relative;
+	top: 10px;
 }
 
 .logo{
@@ -10,18 +45,6 @@ nav{
 	max-width: 80px;
 }
 
-.carousel{
-	min-height:300px !important;
-}
-
-#home, #skills, #formation, #projects{
-	min-height: 100vh !important;
-}
-
-.hello{
-	width: 40%;
-	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
+.card-action{
+	text-align: right;
 }

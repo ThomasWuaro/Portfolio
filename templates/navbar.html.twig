@@ -1,12 +1,15 @@
  <div class="navbar-fixed">
  	<nav>
-		<div class="nav-wrapper grey darken-4">
-			<a href="{{ path('home') }}" class="brand-logo">Logo</a>
-			<ul id="nav-mobile" class="right hide-on-med-and-down section table-of-contents">
-				<li><a href="#home">Accueil</a></li>
-				<li><a href="#skills">Compétences</a></li>
-				<li><a href="#formation">Formation</a></li>
-				<li><a href="#projects">Projets</a></li>
+		<div class="nav-wrapper">
+			<a href="{{ path('home') }}" class="brand-logo">
+				<img src="/images/wuaro/wuaro-logo-small.png" class="logo-small">
+			</a>
+
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a data-menuanchor="home" href="#home">Accueil</a></li>
+				<li><a data-menuanchor="skills" href="#skills">Compétences</a></li>
+				<li><a data-menuanchor="formations" href="#formations">Formation</a></li>
+				<li><a data-menuanchor="projects" href="#projects">Projets</a></li>
 			</ul>
 		</div>
 	</nav>

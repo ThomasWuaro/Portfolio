@@ -12,6 +12,7 @@
                   <li><a class="grey-text text-lighten-3" href="#skills">Skills</a></li>
                   <li><a class="grey-text text-lighten-3" href="#formation">Formations</a></li>
                   <li><a class="grey-text text-lighten-3" href="#projects">Experiences</a></li>
+                  {% if app.user %}<li><a class="grey-text text-lighten-3" href="{{path('admin')}}">Espace admin</a></li>{% endif %}
                 </ul>
               </div>
             </div>

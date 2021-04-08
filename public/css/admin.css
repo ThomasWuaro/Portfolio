@@ -1,0 +1,39 @@
+footer{
+	margin-top: 40px;
+}
+
+#admin{
+	min-height: 60vh;
+}
+
+.admin-container{
+	min-height: 60vh;
+}
+
+table{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.td-actions{
+	text-align: right;
+}
+
+.btn{
+	margin:5px 0;
+}
+
+.btn i{
+	margin-left: 5px;
+	vertical-align: middle;
+}
+
+i.back{
+	margin-left: 0;
+	margin-right: 5px;
+}
+
+.project-img{
+	max-width: 400px;
+}
+

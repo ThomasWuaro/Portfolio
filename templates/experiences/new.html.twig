@@ -1,11 +1,17 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}New Experiences{% endblock %}
 
 {% block body %}
-    <h1>Create new Experiences</h1>
+    <h1>Créer un nouveau projet</h1>
+    <blockquote>Entrez les informations demandées pour créer un nouveau projet.</blockquote>
 
     {{ include('experiences/_form.html.twig') }}
 
-    <a href="{{ path('experiences_index') }}">back to list</a>
+    <div class="right-align"><a href="{{ path('experiences_index') }}" class="btn"><i class="material-icons back">arrow_back</i>Retour</a></div>
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	<script src="/js/datepicker.js"></script>
 {% endblock %}

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SkillController extends AbstractController
 {
     /**
-     * @Route("/skill", name="skill_index", methods={"GET"})
+     * @Route("/admin/skill", name="skill_index", methods={"GET"})
      */
     public function index(SkillRepository $skillRepository): Response
     {
@@ -23,7 +23,7 @@ class SkillController extends AbstractController
     }
 
     /**
-     * @Route("/skill/new", name="skill_new", methods={"GET","POST"})
+     * @Route("/admin/skill/new", name="skill_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -46,7 +46,7 @@ class SkillController extends AbstractController
     }
 
     /**
-     * @Route("/skill/{id}", name="skill_show", methods={"GET"})
+     * @Route("/admin/skill/{id}", name="skill_show", methods={"GET"})
      */
     public function show(Skill $skill): Response
     {
@@ -56,7 +56,7 @@ class SkillController extends AbstractController
     }
 
     /**
-     * @Route("/skill/{id}/edit", name="skill_edit", methods={"GET","POST"})
+     * @Route("/admin/skill/{id}/edit", name="skill_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Skill $skill): Response
     {
@@ -76,7 +76,7 @@ class SkillController extends AbstractController
     }
 
     /**
-     * @Route("/skill/{id}", name="skill_delete", methods={"DELETE"})
+     * @Route("/admin/skill/{id}", name="skill_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Skill $skill): Response
     {

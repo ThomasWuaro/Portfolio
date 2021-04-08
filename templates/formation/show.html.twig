@@ -1,9 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}Formation{% endblock %}
 
 {% block body %}
-    <h1>Formation</h1>
+    <h1>{{formation.name}}</h1>
+    <blockquote>Vous trouverez ici toutes les informations concernant vos formations.</blockquote>
 
     <table class="table">
         <tbody>
@@ -12,11 +13,11 @@
                 <td>{{ formation.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ formation.name }}</td>
             </tr>
             <tr>
-                <th>Grade_level</th>
+                <th>Niveau</th>
                 <td>{{ formation.gradeLevel }}</td>
             </tr>
             <tr>
@@ -24,19 +25,22 @@
                 <td>{{ formation.description }}</td>
             </tr>
             <tr>
-                <th>StartedAt</th>
+                <th>Début</th>
                 <td>{{ formation.startedAt ? formation.startedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>EndedAt</th>
+                <th>Fin</th>
                 <td>{{ formation.endedAt ? formation.endedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ vich_uploader_asset(formation, 'imageFile') }}"></td>
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('formation_index') }}">back to list</a>
-
-    <a href="{{ path('formation_edit', {'id': formation.id}) }}">edit</a>
-
-    {{ include('formation/_delete_form.html.twig') }}
+    <div class="right-align">
+        <a href="{{ path('formation_index') }}" class="btn"><i class="material-icons back">arrow_back</i>Retour</a>
+        <a href="{{ path('formation_edit', {'id': formation.id}) }}" class="btn">Modifier<i class="material-icons">edit</i></a>
+        {{ include('formation/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

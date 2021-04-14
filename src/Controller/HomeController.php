@@ -16,6 +16,7 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {	
+        //lol//
     	$em = $this->getDoctrine()->getManager();
     	$skills = $em->getRepository(Skill::class)->findAll();
         $formations = $em->getRepository(Formation::class)->findAll();

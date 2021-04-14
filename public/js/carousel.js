@@ -29,7 +29,13 @@ $(document).ready(function(){
 
 		var dataTab= $(this).data("tab");
 		$('.itemDot').removeClass('active');
+		$('.itemDot').css({
+			"opacity": 0.8
+		});
 		$(this).addClass('active');
+		$(this).css({
+			"opacity":1
+		});
 		$('.CirItem').removeClass('active');
 		$( '.CirItem'+ dataTab).addClass('active');
 		i=dataTab;
@@ -53,7 +59,13 @@ $(document).ready(function(){
 			i=1;
 		}
 		$('.itemDot').removeClass('active');
+		$('.itemDot').css({
+			"opacity": 0.8
+		});
 		$('[data-tab="'+i+'"]').addClass('active');
+		$('[data-tab="'+i+'"]').css({
+			"opacity": 1
+		});
 		$('.CirItem').removeClass('active');
 		$( '.CirItem'+i).addClass('active');
 		i++;

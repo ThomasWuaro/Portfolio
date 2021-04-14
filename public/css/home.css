@@ -18,13 +18,33 @@ h1, h2{
 	flex-direction: column;
 }
 
+.home-container h1{
+	color: rgba(0,0,0,0.87);
+	font-size: 2.5rem;
+	margin: 10px 0;
+}
+
 .home-container .card{
 	width: 50%;
 	margin-top: 20px;
 }
 
+.home-container .card-content{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .carousel{
 	min-height:300px !important;
+}
+
+.card-content p{
+	margin-block-start: 1em !important;
+    margin-block-end: 1em !important;
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
 }
 
 .section1{
@@ -70,4 +90,14 @@ h1, h2{
 
 .modal img{
 	width: 100%;
+}
+
+.fp-tableCell{
+	height: 600px !important;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 599px){
+	.home-container .card{
+		width: 100%;
+	}
 }

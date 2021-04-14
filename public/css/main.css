@@ -16,6 +16,18 @@ h1, h2, h3, h4{
 	align-items: center;
 }
 
+h1{
+	font-size: 3.5rem;
+}
+
+h2{
+	font-size: 3rem;
+}
+
+h3, h4{
+	font-size: 2.5rem;
+}
+
 h1 i, h2 i{
 	margin-right: 10px;
 }
@@ -30,6 +42,10 @@ p{
 	font-weight: 400;
 	display: flex;
 	align-items: center;
+}
+
+p .material-icons{
+	margin-right: 5px;
 }
 
 .relative-icon {
@@ -47,4 +63,14 @@ p{
 
 .card-action{
 	text-align: right;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 599px){
+	h1{
+		font-size: 3rem;
+	}
+
+	h2{
+		font-size: 2.5rem;
+	}
 }

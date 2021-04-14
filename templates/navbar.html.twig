@@ -8,8 +8,14 @@
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a data-menuanchor="home" href="#home">Accueil</a></li>
 				<li><a data-menuanchor="skills" href="#skills">Compétences</a></li>
-				<li><a data-menuanchor="formations" href="#formations">Formation</a></li>
+				<li><a data-menuanchor="formations" href="#formations">Formations</a></li>
 				<li><a data-menuanchor="projects" href="#projects">Projets</a></li>
+				{% if app.user %}
+				    <li><a href="{{ path('admin')}}">Admin</a></li>
+				    <li><a href="{{ path('app_logout')}}">Logout</a></li>
+				{% else %}
+				    <li><a href="{{ path('app_login')}}">Login</a></li>
+				{% endif %}
 			</ul>
 		</div>
 	</nav>

@@ -2,109 +2,114 @@
 
 {% block title %}Wuaro Thomas Portfolio{% endblock %}
 
-  {% block stylesheets %}
-    {{parent()}}
-    <link rel="stylesheet" href="/lib/fullpage/fullpage.min.css">
-    <link rel="stylesheet" href="/css/carousel.css">
-    <link rel="stylesheet" href="/css/home.css">
-  {% endblock %}
+{% block stylesheets %}
+  {{parent()}}
+  <link rel="stylesheet" href="/lib/fullpage/fullpage.min.css">
+  <link rel="stylesheet" href="/css/carousel.css">
+  <link rel="stylesheet" href="/css/home.css">
+{% endblock %}
 
-  {% block body %}
-    <div id="fullpage">
+{% block body %}
+  <div id="fullpage">
 
-        <div class="section section1">
-          <div class="container home-container">
-              <img src="/images/wuaro/wuaro-logo-white.png">
-              <div class="card blue-grey lighten-5">
-                <div class="card-content">
-                  <h1>Hello World !</h1>
-                  <p>Hoarau Thomas - Développeur web full stack</p>
-                </div>
-              </div>
+    <!-- HOME -->
+    <div class="section section1">
+      <div class="container home-container">
+          <img src="/images/wuaro/wuaro-logo-white.png">
+          <div class="card blue-grey lighten-5">
+            <div class="card-content">
+              <h1>Hello World !</h1>
+              <p>Hoarau Thomas - Développeur web full stack</p>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- CAROUSEL -->
+    <div class="section section2">
+      <div class="container">
+        <h2><i class="medium material-icons">star</i>Compétences</h2>
+        
+        <div class="skill-carousel">
+
+          <div class="carousel-dots">
+            {% for skill in skills %}
+              <span class="carousel-dots-item{% if loop.first %} active{% endif %}" data-title="{{skill.name}}" data-color="{{ skill.color }}" data-dot="{{loop.index0}}">
+                  <img src="{{ vich_uploader_asset(skill, 'imageFile') }}" class="logo-small" alt="wuaro-thomas-logo">
+                  <span class="forActive"></span>
+              </span>
+            {% endfor %}
+          </div>
+          <div class="carousel-content active"></div>
+
+        </div>
+      </div> 
+    </div>
+
+    <!-- FORMATIONS -->
+    <div class="section section3">
+      <div class="container">
+        <h2><i class="medium material-icons">school</i>Formations</h2>
+        {% for  formation in formations %}
+          <div class="slide">
+            <div class="slide-logo-container"><img src="{{ vich_uploader_asset(formation, 'imageFile') }}" alt="formation-logo"></div>
+          <div class="row card blue-grey lighten-5 formation-container">
+              <span class="card-title">{{formation.name}}</span>
+              <p><i class="material-icons">access_time</i>Début de la formation : {{formation.startedAt|date("d/m/Y")}}</p>
+              <p><i class="material-icons">access_time</i>Fin de la formation : {{formation.endedAt|date("d/m/Y")}}</p>
+              <p>{{formation.description}}</p>
           </div>
         </div>
+        {% endfor %}
+      </div>
+    </div>
 
-          <div class="section section2">
-            <div class="container">
-              <h2><i class="medium material-icons">star</i>Compétences</h2>
-              
-              <div class="skill-carousel">
+    <!-- PROJETS -->
+    <div class="section section4">
+      <div class="container">
+        <h2><i class="medium material-icons">work</i>Projets</h2>
 
-                <div class="carousel-dots">
-                  {% for skill in skills %}
-                    <span class="carousel-dots-item{% if loop.first %} active{% endif %}" data-title="{{skill.name}}" data-color="{{ skill.color }}" data-dot="{{loop.index0}}">
-                        <img src="{{ vich_uploader_asset(skill, 'imageFile') }}" class="logo-small" alt="wuaro-thomas-logo">
-                        <span class="forActive"></span>
-                    </span>
-                  {% endfor %}
-                </div>
-
-                <div class="carousel-content active"></div>
-
-              </div>
-
-            </div> 
-          </div>
-
-            <div class="section section3">
-              <div class="container">
-                <h2><i class="medium material-icons">school</i>Formations</h2>
-                {% for  formation in formations %}
-                  <div class="slide">
-                    <div class="slide-logo-container"><img src="{{ vich_uploader_asset(formation, 'imageFile') }}" alt="formation-logo"></div>
-                  <div class="row card blue-grey lighten-5 formation-container">
-                      <span class="card-title">{{formation.name}}</span>
-                      <p><i class="material-icons">access_time</i>Début de la formation : {{formation.startedAt|date("d/m/Y")}}</p>
-                      <p><i class="material-icons">access_time</i>Fin de la formation : {{formation.endedAt|date("d/m/Y")}}</p>
-                      <p>{{formation.description}}</p>
+          {% for  project in projects %}
+            <div class="row">
+              <div class="col m12 l6">
+                <div class="card blue-grey lighten-5">
+                  <div class="card-content">
+                    <span class="card-title">{{project.title}}</span>
+                    <p><i class="material-icons">access_time</i>Début du projet : {{project.startedAt|date("d/m/Y")}}</p>
+                    <p><i class="material-icons">access_time</i>Fin du projet : {{project.endedAt|date("d/m/Y")}}</p>
+                    <p>{{project.description}}</p>
+                  </div>
+                  <div class="card-action">
+                    <a class="btn cyan darken-1 modal-trigger" href="#modal1">Voir</a>
                   </div>
                 </div>
-                {% endfor %}
               </div>
             </div>
 
-            <div class="section section4">
-              <div class="container">
-                <h2><i class="medium material-icons">work</i>Projets</h2>
+            <!-- HOME -->
+            <div id="modal1" class="modal modal-fixed-footer">
+              <div class="modal-fixed-header"><h4>{{project.title}}</h4></div>
 
-                  {% for  project in projects %}
-                    <div class="row">
-                      <div class="col m12 l6">
-                        <div class="card blue-grey lighten-5">
-                          <div class="card-content">
-                            <span class="card-title">{{project.title}}</span>
-                            <p><i class="material-icons">access_time</i>Début du projet : {{project.startedAt|date("d/m/Y")}}</p>
-                            <p><i class="material-icons">access_time</i>Fin du projet : {{project.endedAt|date("d/m/Y")}}</p>
-                            <p>{{project.description}}</p>
-                          </div>
-                          <div class="card-action">
-                            <a class="btn cyan darken-1 modal-trigger" href="#modal1">Voir</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                  <div id="modal1" class="modal modal-fixed-footer">
-                    <div class="modal-fixed-header"><h4>{{project.title}}</h4></div>
-                    <div class="modal-content">
-                      <img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="projet-image">
-                    </div>
-                    <div class="modal-footer">
-                      <a href="#!" class="modal-close btn cyan darken-1">Retour</a>
-                      <a href="https://stadeformation.fr/" target="_blank" class="btn cyan darken-1">Voir</a>
-                    </div>
-                </div>
+              <div class="modal-content">
+                <img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="projet-image">
               </div>
-                  {% endfor %}
+
+              <div class="modal-footer">
+                <a href="#!" class="modal-close btn cyan darken-1">Retour</a>
+                <a href="https://stadeformation.fr/" target="_blank" class="btn cyan darken-1">Voir</a>                     
+              </div>
             </div>
+          {% endfor %}
+      </div>    
+    </div>
 
-      </div>
-    {% endblock %}
+  </div>
+{% endblock %}
 
-    {% block javascripts %}
-      {{parent()}}
-      <script src="/lib/fullpage/fullpage.min.js"></script>
-      <script src="/js/fullpage.js"></script>
-      <script src="/js/carousel.js"></script>
-      <script src="/js/modal.js"></script>
-    {% endblock %}
+{% block javascripts %}
+  {{parent()}}
+  <script src="/lib/fullpage/fullpage.min.js"></script>
+  <script src="/js/fullpage.js"></script>
+  <script src="/js/carousel.js"></script>
+  <script src="/js/modal.js"></script>
+{% endblock %}

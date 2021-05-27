@@ -1,24 +1,24 @@
 <footer class="page-footer grey darken-4">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Portfolio</h5>
-                <p class="grey-text text-lighten-2">Vous trouverez-ici des informations sur mon parcours professionnel et mes compétences.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Liens</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="{{ path('home') }}">Accueil</a></li>
-                  <li><a class="grey-text text-lighten-3" href="{{ path('home') }}#skills">Compétences</a></li>
-                  <li><a class="grey-text text-lighten-3" href="{{ path('home') }}#formation">Formations</a></li>
-                  <li><a class="grey-text text-lighten-3" href="{{ path('home') }}#projects">Projets</a></li>
-                  {% if app.user %}<li><a class="grey-text text-lighten-3" href="{{path('admin')}}">Espace admin</a></li>{% endif %}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright grey darken-4">
-            <div class="container">
-            </div>
-          </div>
-        </footer>
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Portfolio</h5>
+        <p class="grey-text text-lighten-2">Vous trouverez-ici des informations sur mon parcours professionnel et mes compétences.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Liens</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="{{ path('home') }}">Accueil</a></li>
+          <li><a class="grey-text text-lighten-3" href="{{ path('home') }}#skills">Compétences</a></li>
+          <li><a class="grey-text text-lighten-3" href="{{ path('home') }}#formation">Formations</a></li>
+          <li><a class="grey-text text-lighten-3" href="{{ path('home') }}#projects">Projets</a></li>
+          {% if app.user %}<li><a class="grey-text text-lighten-3" href="{{path('admin')}}">Espace admin</a></li>{% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright grey darken-4">
+    <div class="container">
+    </div>
+  </div>
+</footer>

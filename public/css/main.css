@@ -1,15 +1,17 @@
+/**** NAVBAR ****/
 nav img{
 	margin: 5px 10px;
 	opacity: 80%;
 }
 
+/**** FONT ****/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
 a{
 	color: black;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
-
-h1, h2, h3, h4{
+h1, h2, h3, h4, p{
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
 	display: flex;
@@ -32,18 +34,26 @@ h1 i, h2 i{
 	margin-right: 10px;
 }
 
+/**** CARD ****/
 .card-title{
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400 !important;
 }
 
-p{
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 400;
-	display: flex;
-	align-items: center;
+.card-action{
+	text-align: right;
 }
 
+/**** LOGO ****/
+.logo{
+	max-width: 200px;
+}
+
+.logo-small{
+	max-width: 80px;
+}
+
+/**** ICON ****/
 p .material-icons{
 	margin-right: 5px;
 }
@@ -53,18 +63,7 @@ p .material-icons{
 	top: 10px;
 }
 
-.logo{
-	max-width: 200px;
-}
-
-.logo-small{
-	max-width: 80px;
-}
-
-.card-action{
-	text-align: right;
-}
-
+/**** MEDIA QUERIES ****/
 @media only screen and (min-width: 300px) and (max-width: 599px){
 	h1{
 		font-size: 3rem;

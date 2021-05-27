@@ -1,3 +1,4 @@
+/**** NAVBAR ****/
 nav{
 	background: transparent;
     box-shadow: none;
@@ -7,10 +8,12 @@ nav{
 	position: absolute;
 }
 
+/**** TITLE ****/
 h1, h2{
 	color: white;
 }
 
+/**** HOME ****/
 .home-container{
 	display: flex;
 	justify-content: center;
@@ -36,17 +39,12 @@ h1, h2{
     flex-direction: column;
 }
 
+/**** CAROUSEL ****/
 .carousel{
 	min-height:300px !important;
 }
 
-.card-content p{
-	margin-block-start: 1em !important;
-    margin-block-end: 1em !important;
-    margin-inline-start: 0px !important;
-    margin-inline-end: 0px !important;
-}
-
+/**** LINEAR-GRADIENT ****/
 .section1{
 	background: -webkit-gradient(linear, top left, bottom left, from(#92a1ca), to(#76c2bd));
 	background: -webkit-linear-gradient(#92a1ca, #76c2bd);
@@ -71,6 +69,14 @@ h1, h2{
 	background: linear-gradient(#969AC6,#636F8F);
 }
 
+/**** CARDS ****/
+.card-content p{
+	margin-block-start: 1em !important;
+    margin-block-end: 1em !important;
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
+}
+
 .formation-container{
 	padding: 24px;
 	width: 80%;
@@ -84,6 +90,7 @@ h1, h2{
 	margin-bottom: 20px;
 }
 
+/**** MODAL ****/
 .modal, .modal-overlay{
 	position: absolute;
 }
@@ -120,6 +127,7 @@ h1, h2{
 	height: 600px !important;
 }
 
+/**** MEDIA QUERIES ****/
 @media only screen and (min-width: 300px) and (max-width: 599px){
 	.home-container .card{
 		width: 100%;

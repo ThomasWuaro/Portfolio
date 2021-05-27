@@ -1,17 +1,21 @@
 $(function(){
 	
+	// Elements
 	var carousel = $('.skill-carousel');
 	var dotContainer = carousel.find('.carousel-dots'), dotItems = dotContainer.find('.carousel-dots-item');
 	var contentItem = $('.carousel-content'); 
 	
+	// Calculs
 	var currentItem = 0, lastItem, itemsNbr = dotItems.length;
 	var rotateValue = 360/itemsNbr, dotContainerRotation = 0, dotItemsRotation = 0;
     var interval, speed = 3000
 
+	// Initialisation
 	initCarousel();
 	displayContent($(dotItems[0]));
 	initInterval();
 
+	// Responsive
 	$(window).resize(function(){
 		initCarousel();
 	});

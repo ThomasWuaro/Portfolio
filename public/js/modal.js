@@ -1,3 +1,4 @@
+// Modal
 $(document).ready(function(){
     $('.modal').modal({
     	onOpenStart: function(){

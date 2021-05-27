@@ -38,7 +38,9 @@ class FormationType extends AbstractType
                 // adds a class that can be selected in JavaScript
                 'attr' => ['class' => 'datepicker'],
             ])
-            ->add('imageFile', VichImageType::class)
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+            ])
         ;
     }
 

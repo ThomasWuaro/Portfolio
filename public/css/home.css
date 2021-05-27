@@ -88,8 +88,32 @@ h1, h2{
 	position: absolute;
 }
 
+.modal .modal-content{
+	text-align: center;
+	margin-top: 40px;
+}
+
+.modal .modal-fixed-header{
+	position: absolute;
+	top: 0;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	background-color: #fafafa;
+    padding: 4px 6px;
+    height: 56px;
+    width: 100%;
+	z-index: 1;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .modal img{
-	width: 100%;
+	max-width: 100vw;
+	max-height: 100vh;
+}
+
+.modal h4{
+	font-size: 24px;
 }
 
 .fp-tableCell{
@@ -99,5 +123,14 @@ h1, h2{
 @media only screen and (min-width: 300px) and (max-width: 599px){
 	.home-container .card{
 		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 992px){
+	.modal {
+		width: 90%;
+	}
+	.modal img{
+		max-width: 80vw;
 	}
 }

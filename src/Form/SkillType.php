@@ -15,7 +15,10 @@ class SkillType extends AbstractType
         $builder
             ->add('name')
             ->add('level')
-            ->add('imageFile', VichImageType::class)
+            ->add('color')
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+            ])
         ;
     }
 

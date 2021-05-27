@@ -1,85 +1,92 @@
-let i=2;
+$(function(){
+	
+	var carousel = $('.skill-carousel');
+	var dotContainer = carousel.find('.carousel-dots'), dotItems = dotContainer.find('.carousel-dots-item');
+	var contentItem = $('.carousel-content'); 
+	
+	var currentItem = 0, lastItem, itemsNbr = dotItems.length;
+	var rotateValue = 360/itemsNbr, dotContainerRotation = 0, dotItemsRotation = 0;
+    var interval, speed = 3000
 
+	initCarousel();
+	displayContent($(dotItems[0]));
+	initInterval();
 
-$(document).ready(function(){
-	var radius = 200;
-	var fields = $('.itemDot');
-	var container = $('.dotCircle');
-	var width = container.width();
-	radius = width/2.5;
-
-	var height = container.height();
-	var angle = 0, step = (2*Math.PI) / fields.length;
-	fields.each(function() {
-		var x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2);
-		var y = Math.round(height/2 + radius * Math.sin(angle) - $(this).height()/2);
-		/*if(window.console) {
-			console.log($(this).text(), x, y);
-		}*/
-
-		$(this).css({
-			left: x + 'px',
-			top: y + 'px'
-		});
-		angle += step;
+	$(window).resize(function(){
+		initCarousel();
 	});
 
+	function initCarousel(){
 
-	$('.itemDot').click(function(){
+		var width = dotContainer.width();
+		var height = dotContainer.height();
 
-		var dataTab= $(this).data("tab");
-		$('.itemDot').removeClass('active');
-		$('.itemDot').css({
-			"opacity": 0.8
-		});
-		$(this).addClass('active');
-		$(this).css({
-			"opacity":1
-		});
-		$('.CirItem').removeClass('active');
-		$( '.CirItem'+ dataTab).addClass('active');
-		i=dataTab;
+		radius = width/2.5;
 
-		$('.dotCircle').css({
-			"transform":"rotate("+(360-(i-1)*45)+"deg)",
-			"transition":"2s"
-		});
-		$('.itemDot').css({
-			"transform":"rotate("+((i-1)*45)+"deg)",
-			"transition":"1s"
+		var angle = 0, step = (2*Math.PI) / itemsNbr;
+
+		dotItems.each(function() {
+			var x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2);
+			var y = Math.round(height/2 + radius * Math.sin(angle) - $(this).height()/2);
+
+			$(this).css({
+				left: x + 'px',
+				top: y + 'px'
+			});
+			angle += step;
 		});
 
+	}
 
+	dotItems.click(function(){
+
+		lastItem = currentItem;
+		currentItem = $(this).data("dot");
+
+		var diff = currentItem - lastItem;
+		if(diff < 0) diff = itemsNbr + diff;
+
+		selectItem(diff);
 	});
 
-	setInterval(function(){
-		var dataTab= $('.itemDot.active').data("tab");
-		if(dataTab>fields.length||i>fields.length){
-			dataTab=1;
-			i=1;
-		}
-		$('.itemDot').removeClass('active');
-		$('.itemDot').css({
-			"opacity": 0.8
-		});
-		$('[data-tab="'+i+'"]').addClass('active');
-		$('[data-tab="'+i+'"]').css({
-			"opacity": 1
-		});
-		$('.CirItem').removeClass('active');
-		$( '.CirItem'+i).addClass('active');
-		i++;
+	function selectItem(diff = 1) {
+		var item = $(dotItems[currentItem]);
+		$(dotItems[lastItem]).toggleClass('active');
+		item.toggleClass('active');
 
+		dotContainerRotation -= rotateValue * diff;
+        dotItemsRotation += rotateValue * diff;
 
-		$('.dotCircle').css({
-			"transform":"rotate("+(360-(i-2)*45)+"deg)",
-			"transition":"2s"
-		});
-		$('.itemDot').css({
-			"transform":"rotate("+((i-2)*45)+"deg)",
-			"transition":"1s"
-		});
+		dotContainer.css({"transform":"rotate("+ dotContainerRotation +"deg)"});
+		dotItems.css({"transform":"rotate("+ dotItemsRotation +"deg)"});
 
-	}, 5000);
+		displayContent(item);
+	}
+
+	function displayContent(item){
+		contentItem.html(item.data('title'));
+		contentItem.css({ "backgroundColor" : item.data('color') });
+	}
+
+	carousel.on('mouseenter', function(){
+		clearInterval(interval);
+		interval = null;
+	});
+
+	carousel.on('mouseleave', function() {
+		if(!interval) initInterval();
+	});
+
+	function initInterval() {
+		interval = setInterval(function(){
+
+			lastItem = currentItem;
+			currentItem++;
+			if(currentItem >= itemsNbr) currentItem = 0;
+
+			selectItem();
+
+		 }, speed)
+	};
 
 });

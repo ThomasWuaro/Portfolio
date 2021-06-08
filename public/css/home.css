@@ -166,6 +166,10 @@ h1, h2{
 		width :80px;
 	}
 
+	.fp-controlArrow{
+		top: 40%!important;
+	}
+
 	.card .card-title{
 		font-size: 1.5rem;
 	}

@@ -83,6 +83,12 @@ h1, h2{
 	margin: auto;
 }
 
+.formation-container-small{
+	display: none;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
 .slide-logo-container{
 	display: flex;
 	align-items: center;
@@ -96,8 +102,15 @@ h1, h2{
 }
 
 .modal .modal-content{
-	text-align: center;
 	margin-top: 40px;
+}
+
+.formations-modal .modal-fixed-header{
+	display: block!important;
+}
+
+.projects-modal .modal-content{
+	text-align: center;
 }
 
 .modal .modal-fixed-header{
@@ -128,17 +141,52 @@ h1, h2{
 }
 
 /**** MEDIA QUERIES ****/
-@media only screen and (min-width: 300px) and (max-width: 599px){
-	.home-container .card{
-		width: 100%;
-	}
-}
-
 @media only screen and (max-width: 992px){
 	.modal {
 		width: 90%;
 	}
 	.modal img{
 		max-width: 80vw;
+	}
+}
+
+@media only screen and (min-width: 599px) and (max-width: 700px){
+	.card .card-title{
+		font-size: 2rem;
+	}
+}
+
+@media only screen and (min-width: 300px) and (max-width: 599px){
+	.home-container .card{
+		width: 100%;
+		text-align: center;
+	}
+
+	.slide-logo-container img{
+		width :80px;
+	}
+
+	.card .card-title{
+		font-size: 1.5rem;
+	}
+
+	.fp-controlArrow.fp-next{
+		right: 5px;
+	}
+
+	.fp-controlArrow.fp-prev{
+		left: 5px;
+	}
+
+	.formation-container{
+		display: none;
+	}
+
+	.formation-container-small{
+		display: block;
+	}
+
+	.fp-tableCell{
+		height: 500px !important;
 	}
 }

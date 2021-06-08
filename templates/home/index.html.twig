@@ -51,13 +51,36 @@
       <div class="container">
         <h2><i class="medium material-icons">school</i>Formations</h2>
         {% for  formation in formations %}
-          <div class="slide">
-            <div class="slide-logo-container"><img src="{{ vich_uploader_asset(formation, 'imageFile') }}" alt="formation-logo"></div>
+        <div class="slide">
+          <div class="slide-logo-container"><img src="{{ vich_uploader_asset(formation, 'imageFile') }}" alt="formation-logo"></div>
           <div class="row card blue-grey lighten-5 formation-container">
               <span class="card-title">{{formation.name}}</span>
               <p><i class="material-icons">access_time</i>Début de la formation : {{formation.startedAt|date("d/m/Y")}}</p>
               <p><i class="material-icons">access_time</i>Fin de la formation : {{formation.endedAt|date("d/m/Y")}}</p>
               <p>{{formation.description}}</p>
+          </div>
+          <!-- HIDDEN -->
+          <div class="row card blue-grey lighten-5 formation-container-small">
+            <div class="card-content">
+              <span class="card-title">{{formation.name}}</span>
+            </div>
+            <div class="card-action">
+              <a class="btn cyan darken-1 modal-trigger" href="#formations-modal{{formation.id}}">Voir</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="formations-modal{{formation.id}}" class="formations-modal modal modal-fixed-footer">
+          <div class="modal-fixed-header"><h4>{{formation.name}}</h4></div>
+
+          <div class="modal-content">
+            <p><i class="material-icons">access_time</i>Début de la formation : {{formation.startedAt|date("d/m/Y")}}</p>
+            <p><i class="material-icons">access_time</i>Fin de la formation : {{formation.endedAt|date("d/m/Y")}}</p>
+            <p>{{formation.description}}</p>
+          </div>
+
+          <div class="modal-footer">
+            <a href="#!" class="modal-close btn cyan darken-1">Retour</a>                    
           </div>
         </div>
         {% endfor %}
@@ -80,14 +103,13 @@
                     <p>{{project.description}}</p>
                   </div>
                   <div class="card-action">
-                    <a class="btn cyan darken-1 modal-trigger" href="#modal1">Voir</a>
+                    <a class="btn cyan darken-1 modal-trigger" href="#projects-modal{{project.id}}">Voir</a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- HOME -->
-            <div id="modal1" class="modal modal-fixed-footer">
+            <div id="projects-modal{{project.id}}" class="projects-modal modal modal-fixed-footer">
               <div class="modal-fixed-header"><h4>{{project.title}}</h4></div>
 
               <div class="modal-content">
@@ -100,6 +122,8 @@
               </div>
             </div>
           {% endfor %}
+
+          
       </div>    
     </div>
 
